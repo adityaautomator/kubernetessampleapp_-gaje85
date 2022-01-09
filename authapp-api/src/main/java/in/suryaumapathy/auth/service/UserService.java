@@ -1,5 +1,7 @@
 package in.suryaumapathy.auth.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,10 @@ public class UserService {
 
     public void register(User user) {
         userDAO.register(user);
+    }
+
+    public List<User> list(){
+        return userDAO.getAllUsers();
     }
 	
 }

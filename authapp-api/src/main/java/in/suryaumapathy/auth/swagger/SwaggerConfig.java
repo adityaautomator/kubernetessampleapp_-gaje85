@@ -17,8 +17,8 @@ public class SwaggerConfig {
                 return new OpenAPI()
                                 .components(new Components().addSecuritySchemes("basicScheme",
                                                 new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
-                                .info(new Info().title("Todoapp API").version("1.0.0")
-                                                .description("Used to maintain a list of tasks to be done")
+                                .info(new Info().title("AUTH API").version("1.0.0")
+                                                .description("Used to maintain Authentication and manage Users ")
                                                 .termsOfService("http://swagger.io/terms/")
                                                 .license(new License().name("Apache 2.0").url("http://springdoc.org")));
         }
