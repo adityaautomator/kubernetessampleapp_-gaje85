@@ -1,4 +1,17 @@
-<h3>Login</h3>
-<form (submit)="login()">
-<button class="btn btn-success" >Login</button>
+<h3>Login User</h3>
+
+<form #loginForm="ngForm" (ngSubmit)="login()" class="col-4" autocomplete="off">
+    
+    <div class="mb-3">
+        <label for="email" class="form-label">Username/Email</label>
+        <input type="text" class="form-control" name="username" id="username" required  [(ngModel)]="user.username" autocomplete="email1">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="password" [(ngModel)]="user.password" autocomplete="password1">
+    </div>
+    <div  class="mb-3">
+        <button [disabled]="loginForm.invalid" type="submit" class="form-control btn btn-primary">Submit</button>
+        
+    </div>
 </form>

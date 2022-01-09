@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,14 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService:AuthService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  user:any = {
+    username: null, password: null
+  }
+
   login(){
-    const user = { id: 1, name:"Gaje", email:"gajen@gmail.com"};
-    localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
+    this.authService.login(this.user).subscribe( res=>{
+      let user = res;
+      if(res != null){
+        localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
+        alert("Successfully LoggedIn.");
+        this.router.navigateByUrl("/sites");
+      }
+      else{
+        alert("Invalid Login Credentials");
+      }
+    })
   }
 
 }

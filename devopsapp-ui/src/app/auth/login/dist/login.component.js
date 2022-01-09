@@ -9,13 +9,28 @@ exports.__esModule = true;
 exports.LoginComponent = void 0;
 var core_1 = require("@angular/core");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent() {
+    function LoginComponent(authService, router) {
+        this.authService = authService;
+        this.router = router;
+        this.user = {
+            username: null, password: null
+        };
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.login = function () {
-        var user = { id: 1, name: "Gaje", email: "gajen@gmail.com" };
-        localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
+        var _this = this;
+        this.authService.login(this.user).subscribe(function (res) {
+            var user = res;
+            if (res != null) {
+                localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
+                alert("Successfully LoggedIn.");
+                _this.router.navigateByUrl("/sites");
+            }
+            else {
+                alert("Invalid Login Credentials");
+            }
+        });
     };
     LoginComponent = __decorate([
         core_1.Component({
