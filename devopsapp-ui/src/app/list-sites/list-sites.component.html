@@ -1,0 +1,15 @@
+<h3>List Sites</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sno</th>
+            <th>Site Name</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let site of sites;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{site.name}}</td>
+        </tr>
+    </tbody>
+</table>
