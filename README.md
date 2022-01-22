@@ -27,16 +27,18 @@ This repo has sample application to be deployed in kubernetes
 docker pull technocis/userapp-api
 docker pull technocis/devopstracker-api
 docker pull technocis/notificationapp-api
+docker pull technocis/devopstracker-ui
 ```
 
 ##### Run Docker Images
 ```
-docker run -t -p 9002:9002 technocis/userapp-api:latest
-docker run -t -p 9000:9000 technocis/devopstracker-api:latest
-docker run -t -p 9001:9001 technocis/notificationapp-api:latest
+docker run -d -p 9002:9002 technocis/userapp-api:latest
+docker run -d -p 9000:9000 technocis/devopstracker-api:latest
+docker run -d -p 9001:9001 technocis/notificationapp-api:latest
+docker run -d -p 80:80 technocis/devopstracker-ui
 ```
 
-###### Test Microservices
+###### Test Microservices 
 * List Users
 ```
 http://localhost:9002/api/v1/users
@@ -51,4 +53,9 @@ http://localhost:9000/api/v1/sites
 * Test Mail Notification
 ```
 http://localhost:9001/api/v1/mails
+```
+
+* Test Angular App
+```
+http://localhost:80
 ```
