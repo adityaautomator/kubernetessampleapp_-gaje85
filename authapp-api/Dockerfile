@@ -1,4 +1,7 @@
-FROM openjdk:11
-COPY target/auth-0.0.1-SNAPSHOT.jar auth-0.0.1-SNAPSHOT.jar
-EXPOSE 9002/tcp
-ENTRYPOINT ["java","-jar","auth-0.0.1-SNAPSHOT.jar"]
+FROM openjdk:17-jdk
+ADD target/*.jar app.jar
+#ADD ./startup.sh /tmp
+#WORKDIR /tmp
+EXPOSE 9002 9002
+ENTRYPOINT ["java","-Dspring.profiles.active=prod","-jar","/app.jar"]
+#ENTRYPOINT ["/bin/bash"]
