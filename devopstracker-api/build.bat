@@ -1,1 +1,1 @@
-docker build -t devopstracker-api:latest .
+docker build -t technocis/devopstracker-api:latest .

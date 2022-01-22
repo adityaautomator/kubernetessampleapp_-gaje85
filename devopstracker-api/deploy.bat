@@ -1,1 +1,1 @@
-docker run -t -p 9000:9000 devopstracker-api:latest
+docker run -t -p 9000:9000 technocis/devopstracker-api:latest

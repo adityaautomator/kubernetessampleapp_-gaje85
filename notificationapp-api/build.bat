@@ -1,0 +1,1 @@
+docker build -t technocis/notificationapp-api:latest .

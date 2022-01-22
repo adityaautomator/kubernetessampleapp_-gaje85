@@ -1,0 +1,1 @@
+docker run -t -p 9001:9001 technocis/notificationapp-api:latest
