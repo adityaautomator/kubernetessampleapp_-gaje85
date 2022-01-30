@@ -31,7 +31,7 @@ spec:
       containers:
       - name: authapp
         image: gaje85/authapp
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - name: myapp-port
           containerPort: 9002
