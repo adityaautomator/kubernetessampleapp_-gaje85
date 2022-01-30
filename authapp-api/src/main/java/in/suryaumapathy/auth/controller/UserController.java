@@ -18,8 +18,9 @@ public class UserController {
 	UserService userService;
 
 	@GetMapping
-	public List<User> list(){
-		return userService.list();
+	public String list(){
+		//return userService.list();
+		return "Response from EKS cluster . Welcome !!!!!!! ";
 	}
 
 
