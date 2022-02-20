@@ -16,17 +16,17 @@ steps to create cluster
 
 Steps to configure nginx-ingress clb controller
 
-1) kubectl apply -f mandatory.yaml 
+1) kubectl apply -f resource.yaml 
 
 creates a resource for ingress controller
 
-2) kubectl apply -f patch-configmap-l4.yaml
+2) kubectl apply -f configmap-l4.yaml
 
 creates config map and nginx config
 
 3) add certificate id in ssl-cert in service-l4.yaml 
 
-      kubectl apply -f service-l4.yaml
+      kubectl apply -f loadbalancer.yaml
 
 creates classic load balancer
 
@@ -39,7 +39,7 @@ Record name: *
 Type: A
 value:alias(alias to classic and application load balancer)
 
-5) kubectl apply -f ngx-ing.yaml
+5) kubectl apply -f ingress-rules.yaml
 
 creates ingress rules 
 
