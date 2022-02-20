@@ -20,7 +20,7 @@ public class UserController {
 	@GetMapping
 	public String list(){
 		//return userService.list();
-		return "Response from EKS cluster . Welcome !!!!!!! ";
+		return "Response from AWS and this is a new response ";
 	}
 
 
