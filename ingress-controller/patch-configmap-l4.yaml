@@ -1,0 +1,27 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-configuration
+  namespace: ingress-nginx
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+data:
+  use-proxy-protocol: "true"
+  use-forwarded-headers: "true "
+  hsts: "true"
+  compute-full-forwarded-for: "true"
+  client-body-buffer-size: 32M
+  proxy-body-size: 1G
+  proxy-buffering: "off"
+  proxy-read-timeout: "600"
+  proxy-send-timeout: "600"
+  server-tokens: "false"
+  ssl-redirect: "false"
+  upstream-keepalive-connections: "50"
+  http-snippet: |
+    server {
+      listen 8000 proxy_protocol;
+      server_tokens off;
+      return 301 https://$host$request_uri;
+    }

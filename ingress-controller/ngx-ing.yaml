@@ -1,0 +1,46 @@
+---
+apiVersion :  networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+  name: ngx-ingress
+spec:
+  rules:
+  - host: '*.testleaftraining.com'
+    http:
+      paths:
+      - path:
+        pathType: ImplementationSpecific
+        backend:
+          service:
+           name: ui-svc
+           port:
+             number: 3001
+  - host: 'api.testleaftraining.com'    
+    http:
+      paths:
+      - path: /api/v1/mails
+        pathType: ImplementationSpecific
+        backend:
+          service:
+           name: notificationapp-svc
+           port:
+             number: 9001
+      - path: /api/v1/users
+        pathType: ImplementationSpecific
+        backend:
+          service:
+           name: authapp-svc
+           port:
+             number: 31007
+      - path: /api/v1/sites
+        pathType: ImplementationSpecific
+        backend:
+          service:
+           name: devopstracker-svc
+           port:
+             number: 9000

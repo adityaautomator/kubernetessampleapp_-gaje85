@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome!
+  </h1>
+</div>
+<div class="form-group" style="text-align:center">
+  <button class="btn btn-primary mt-20" (click)="getAuth()">Auth Api</button>
+  <div class="textarea-container">
+    <textarea class="mt-10" name="auth" [(ngModel)]="authResponse" rows="4"></textarea>
+  </div>
+  <button class="btn btn-primary mt-20" (click)="getNotifications()">Notifications Api</button>
+  <div class="textarea-container">
+    <textarea class="mt-10" name="notify " [(ngModel)]="mailResponse" rows="4"></textarea>
+  </div>
+  <button class="btn btn-primary mt-20" (click)="getTracker()">Tracker Api</button>
+  <div class="textarea-container">
+    <textarea class="mt-10" name="tracker" [(ngModel)]="trackerResponse" rows="4"></textarea>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

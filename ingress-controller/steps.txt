@@ -1,0 +1,45 @@
+steps to install eksctl
+
+
+1)choco install -y eksctl     (install choclately)
+
+
+steps to create cluster
+
+1) eksctl create cluster --name=<clustername> --node-type=t2.medium --full-ecr-access --nodes-min=1 --nodes-max=2 --region=us-east-2
+
+2) deploy all microservice through jenkins 
+   Kubectl get pods
+
+
+
+
+Steps to configure nginx-ingress clb controller
+
+1) kubectl apply -f mandatory.yaml 
+
+creates a resource for ingress controller
+
+2) kubectl apply -f patch-configmap-l4.yaml
+
+creates config map and nginx config
+
+3) add certificate id in ssl-cert in service-l4.yaml 
+
+      kubectl apply -f service-l4.yaml
+
+creates classic load balancer
+
+4) change dns alias in route 53 for clb
+
+make a  type 'A' entry in route 53 for load balancer u created which will show in the list
+
+
+Record name: *
+Type: A
+value:alias(alias to classic and application load balancer)
+
+5) kubectl apply -f ngx-ing.yaml
+
+creates ingress rules 
+
