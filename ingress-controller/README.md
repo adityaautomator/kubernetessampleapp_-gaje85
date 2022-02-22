@@ -14,7 +14,7 @@ sudo ./aws/install
 
  eksctl create cluster --name=<clustername> --node-type=t2.medium --full-ecr-access --nodes-min=1 --nodes-max=2 --region=us-east-2
 
-# Steps to  set kubeconfig if Multiclusters 
+#### Steps to  set kubeconfig if Multiclusters 
 
 aws eks --region us-east-2 update-kubeconfig --name <clustername>
 
