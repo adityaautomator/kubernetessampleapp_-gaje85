@@ -20,8 +20,12 @@
 * Validation is Successful within 15-30 minutes.
 
 
-####Deploy all microservices
+#### Deploy all microservices
 
+ Install kubectl based on the kubernetes cluster version what we use .
+ 
+ curl -LO https://dl.k8s.io/release/v1.21.7/bin/linux/amd64/kubectl
+ 
 * Deploy all service through jenkins build
 ```
 kubectl  get pods --all-namespaces
