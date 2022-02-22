@@ -1,3 +1,8 @@
+# Architecture
+
+![Alt text](architecture.png?raw=true "Title")
+
+
 # Steps to create cluster
 
  eksctl create cluster --name=<clustername> --node-type=t2.medium --full-ecr-access --nodes-min=1 --nodes-max=2 --region=us-east-2
